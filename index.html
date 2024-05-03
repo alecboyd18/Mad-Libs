@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MadLibs Example</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Mad Libs</h1>
+<form name="myform" method="get" id="myform">
+    <label for="name">Enter a name:</label>
+    <input type="text" id="name" name="name">
+    <p></p>
+
+    <label for="adj1">Enter an adjective</label>
+    <input type="text" id="adj1" name="adj1">
+    <p></p>
+    
+     
+     <label for="verb">Enter a verb:</label>
+    <input type="text" id="verb" name="verb">
+    <p></p>
+    
+     <label for="Place">Enter a Place:</label>
+    <input type="text" id="Place" name="Place">
+    <p></p>
+    
+    
+    
+    <input type="submit" value="Show story">
+</form>
+<!--This is where story will go between the div-->
+<div id="formContents"></div>
+<script>
+    //Get the form element
+    var form = document.getElementById("myform");
+    
+    //Add event listener for form submission with button
+    form.addEventListener("submit", function(event){
+        event.preventDefault();
+        //Get the input value
+        var name = document.getElementById("name").value;
+        var adj1 = document.getElementById("adj1").value;
+        var verb = document.getElementById("verb").value;
+        var Place = document.getElementById("Place").value; 
+        
+        //Get the location to place the story
+        var putStory = document.getElementById("formContents");
+        
+        //Display the story
+        putStory.innerHTML = "Once Upon a time there was a kid named "+ name +". He was very "+ adj1 + ". " + name + " liked to "+ verb +" at "+ Place +".";
+    });
+</script>
+</body>
+
+</html>
